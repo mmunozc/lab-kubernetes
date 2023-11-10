@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-peliculas
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: api-peliculas
+  template:
+    metadata:
+      labels:
+        app: api-peliculas
+    spec:
+      containers:
+      - name: api-peliculas
+        image: mmunozc4/rep-api-peliculas:v3
+        ports:
+        - containerPort: 5000
